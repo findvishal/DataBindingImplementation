@@ -13,17 +13,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-   // private lateinit var binding: ActivityMainBinding
+
     private val recyclerAdapter: CountryListAdapter?=null
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //binding= ActivityMainBinding.inflate(layoutInflater)
-      //  setContentView(binding.root)
-
-       //initRecyclerView()
-
         val viewModel=initViewModel()
         setupBinding(viewModel)
 
@@ -40,22 +33,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-   /* private fun initRecyclerView() {
-        binding.countryListRecyclerview.layoutManager = LinearLayoutManager(this)
-        recyclerAdapter = CountryListAdapter()
-        binding.countryListRecyclerview.adapter=recyclerAdapter
-
-    }*/
-
    fun initViewModel(): MainActivityViewModel {
             val viewModel:MainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         viewModel.getLiveDataObserver().observe(this, Observer {
             it?.let {
                 with(recyclerAdapter) {
                    viewModel.setAdapterData(it)
-                    //setCountryList(it)
-                  //  notifyDataSetChanged()
                 }
             }
         })

@@ -24,7 +24,7 @@ class CountryListAdapter() : RecyclerView.Adapter<CountryListAdapter.MyViewHolde
 
     ): CountryListAdapter.MyViewHolder {
         val binding=CountryListRowBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-      //  val view = LayoutInflater.from(parent.context).inflate(R.layout.country_list_row, parent, false)
+
 
         return MyViewHolder(binding)
     }
@@ -34,28 +34,16 @@ class CountryListAdapter() : RecyclerView.Adapter<CountryListAdapter.MyViewHolde
     }
 
     override fun getItemCount(): Int {
-        // if(countryList == null)return 0
-        // else return countryList?.size!!
         return countryList?.let {
             it.size
         }?:0
     }
 
     class MyViewHolder(val binding: CountryListRowBinding): RecyclerView.ViewHolder(binding.root){
-       // val flagImage = binding.flagImage
-       // val tvName = binding.tvName
-       // val tvCapital = binding.tvCapital
-      //  val tvRegion = binding.tvRegion
 
         fun bind(data: CountryModel) {
             binding.countryModel=data
             binding.executePendingBindings()
-          //  binding.tvName.text = data.name +"(" + data.alpha2Code+")"
-           // binding.tvCapital.text = "Capital: "+data.capital
-         //   binding.tvRegion.text = "Region: "+data.region
-
-
-
         }
     }
     companion object{
@@ -73,8 +61,4 @@ class CountryListAdapter() : RecyclerView.Adapter<CountryListAdapter.MyViewHolde
 
         }
     }
-   // Glide.with(binding.flagImage)
-  //  .load(data.flags.png)
-   // .circleCrop()
-   // .into(binding.flagImage)
 }
