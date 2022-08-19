@@ -22,7 +22,7 @@ class CountryListAdapter() : RecyclerView.Adapter<CountryListAdapter.MyViewHolde
         parent: ViewGroup,
         viewType: Int,
 
-    ): CountryListAdapter.MyViewHolder {
+    ): MyViewHolder {
         val binding=CountryListRowBinding.inflate(LayoutInflater.from(parent.context),parent,false)
 
 
